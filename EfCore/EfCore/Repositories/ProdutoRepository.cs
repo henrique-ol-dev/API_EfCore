@@ -3,6 +3,7 @@ using EfCore.Domains;
 using EfCore.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -83,8 +84,8 @@ namespace EfCore.Repositories
 
                 //Verifica se o produto existe
                 //Caso não exista gera uma exception
-                if (produtoTemp == null)
-                    throw new Exception("Produto não encontrado");
+                //if (produtoTemp == null)
+                   // throw new Exception("Produto não encontrado");
 
                 //Caso exista altera suas propriedades
                 produtoTemp.Nome = produto.Nome;
@@ -98,7 +99,7 @@ namespace EfCore.Repositories
             }
             catch (Exception ex)
             {
-
+                //TODO: Cadastrar Tabela LogErro mensagem de erro com Tag Geral
                 throw new Exception(ex.Message);
             }
         }
