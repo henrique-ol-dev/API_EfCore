@@ -191,4 +191,3 @@ C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\ru\Mi
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\obj\Debug\netcoreapp3.0\EfCore.MvcApplicationPartsAssemblyInfo.cache

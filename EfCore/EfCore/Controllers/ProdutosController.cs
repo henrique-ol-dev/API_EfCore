@@ -34,13 +34,19 @@ namespace EfCore.Controllers
                     return NoContent();
 
                 //Caso exista retorna ok e produtos
-                return Ok(produtos);
-                 
+                return Ok(new
+                {
+                    totalCount = produtos.Count,
+                    data = produtos
+                }); 
             }
             catch (Exception ex)
             {
-                //Caso ocorra algum erro retorna BadRequest e a mensgaem de erro
-                return BadRequest(ex.Message);
+                //TODO : Cadastrar mensagem de erro no dominio logErro
+                return BadRequest(new {
+                    statusCode = 400,
+                    error = "Ocorreu um erro no endpoint Get/produtos, envie umeamil para emial@email.com informando"
+                    });
             }
         }
 
@@ -98,7 +104,7 @@ namespace EfCore.Controllers
                 if (produtoTemp == null)
                     return NotFound();
 
-                produto.Id = id;
+               
                 _produtoRepository.Editar(produto);
 
                 return Ok(produto);

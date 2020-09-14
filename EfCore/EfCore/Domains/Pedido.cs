@@ -12,5 +12,12 @@ namespace EfCore.Domains
         public string Status { get; set; }
         public DateTime OrderDate { get; set; }
 
+        //Relacionamento com a tabela peiddoItem 1,4
+        public List<PedidoItem> PedidosItens { get; set; }
+
+        public Pedido()
+        {
+            PedidosItens = new List<PedidoItem>();
+        }
     }
 }
