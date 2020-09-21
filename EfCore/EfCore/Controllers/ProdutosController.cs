@@ -23,6 +23,10 @@ namespace EfCore.Controllers
             _produtoRepository = new ProdutoRepository();
         }
 
+        /// <summary>
+        /// Mostra todos os produtos cadastrados 
+        /// </summary>
+        /// <returns>Lista com todos os produtos</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -52,7 +56,12 @@ namespace EfCore.Controllers
             }
         }
 
-        // GET api/<ProdutosController>/5
+        // GET api/<ProdutosController>/
+        /// <summary>
+        /// Mostra um único produto
+        /// </summary>
+        /// <param name="id">Id do produto</param>
+        /// <returns>Um produto</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -76,7 +85,11 @@ namespace EfCore.Controllers
             }
         }
 
-        //[FromForm] Recebe os dados do produto via form-data
+        /// <summary>
+        /// Cdastra um produto 
+        /// </summary>
+        /// <param name="produto">Objeto completo de produtos</param>
+        /// <returns>Produto cadastrado</returns>
         [HttpPost]
         public IActionResult Post([FromForm]Produto produto)
         {
@@ -104,6 +117,12 @@ namespace EfCore.Controllers
         }
 
         // PUT api/<ProdutosController>/5
+        /// <summary>
+        /// Altera determinado produto
+        /// </summary>
+        /// <param name="id">Id do produto</param>
+        /// <param name="produto">Objeto produto com as alterações</param>
+        /// <returns>Info do produto alterado</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Produto produto)
         {
@@ -127,6 +146,11 @@ namespace EfCore.Controllers
         }
 
         // DELETE api/<ProdutosController>/5
+        /// <summary>
+        /// Exclui um produto
+        /// </summary>
+        /// <param name="id">Id do produto</param>
+        /// <returns>Id do produto</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

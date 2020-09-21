@@ -54,6 +54,11 @@ namespace EfCore
                         Url = new Uri("https://example.com/license"),
                     }
                 });
+
+                //Gera os comentários em XML da documentação dos métodos
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

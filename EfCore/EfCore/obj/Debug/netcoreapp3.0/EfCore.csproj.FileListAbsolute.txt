@@ -200,3 +200,5 @@ C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\Swash
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\obj\Debug\netcoreapp3.0\EfCore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\obj\Debug\netcoreapp3.0\EfCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\bin\Debug\netcoreapp3.0\EfCore.xml
+C:\Users\senai\Documents\API_Pedidos\EfCore\EfCore\obj\Debug\netcoreapp3.0\EfCore.xml
