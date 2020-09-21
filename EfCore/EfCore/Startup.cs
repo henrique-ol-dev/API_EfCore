@@ -1,7 +1,10 @@
 using System;
+using System.Reflection;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +32,29 @@ namespace EfCore
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
+
+            //Adicionamos o método necessário para a criação do Swagger na aplicação
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Loja API",
+                    Description = "Um modelo simples parea aprendizado sobre ASP.NET Core Web API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Henrique",
+                        Email = "Henrique@gmail.com",
+                        Url = new Uri("https://twitter.comRiqueOLiveira"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "General",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +70,17 @@ namespace EfCore
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseStaticFiles();
+
+            //Usamos efetivamente o Swagger
+            app.UseSwagger();
+
+            //Definimos o endpoint e o nome da versão
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", " API Loja V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using EfCore.Domains;
 using EfCore.Interfaces;
 using EfCore.Repositories;
+using EfCore.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -74,12 +76,20 @@ namespace EfCore.Controllers
             }
         }
 
-        // POST api/<ProdutosController>
+        //[FromForm] Recebe os dados do produto via form-data
         [HttpPost]
-        public IActionResult Post(Produto produto)
+        public IActionResult Post([FromForm]Produto produto)
         {
             try
-            {   
+            {
+                //Verifica se foi enviado um arquibo com a imagem
+                if (produto.Imagem != null)
+                {
+                    var urlImagem = Upload.Local(produto.Imagem);
+
+                    produto.UrlImagem = urlImagem;
+
+                }
                 //Adiciona um produto
                 _produtoRepository.Adicionar(produto);
 

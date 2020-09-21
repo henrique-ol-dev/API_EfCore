@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EfCore.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,8 @@ namespace EfCore.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
-                    Preco = table.Column<float>(nullable: false)
+                    Preco = table.Column<float>(nullable: false),
+                    UrlImagem = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfCore.Migrations
 {
     [DbContext(typeof(PedidoContext))]
-    [Migration("20200911033541_AlterTablePedidosItens")]
-    partial class AlterTablePedidosItens
+    [Migration("20200918181733_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,6 +74,9 @@ namespace EfCore.Migrations
                     b.Property<float>("Preco")
                         .HasColumnType("real");
 
+                    b.Property<string>("UrlImagem")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
@@ -82,13 +85,13 @@ namespace EfCore.Migrations
             modelBuilder.Entity("EfCore.Domains.PedidoItem", b =>
                 {
                     b.HasOne("EfCore.Domains.Pedido", "Pedido")
-                        .WithMany()
+                        .WithMany("PedidosItens")
                         .HasForeignKey("IdPedido")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EfCore.Domains.Produto", "Produto")
-                        .WithMany()
+                        .WithMany("PedidosItens")
                         .HasForeignKey("IdProduto")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
